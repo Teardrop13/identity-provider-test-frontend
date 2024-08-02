@@ -1,0 +1,7 @@
+{
+    "domain": "teardrop.eu.auth0.com",
+    "clientId": "ZMTpocN8zhb48RPBFY99Lt54rgGjbmr2",
+    "audience": "idp-backend",
+    "apiUri": "https://auth0.teardrop.pl/api",
+    "appUri": "https://auth0.teardrop.pl"
+}

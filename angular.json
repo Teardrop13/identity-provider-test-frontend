@@ -70,7 +70,13 @@
                   "maximumError": "4kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "fileReplacements": [
+                {
+                    "replace": "auth_config.json",
+                    "with": "auth_config_prod.json"
+                  }
+              ]
             },
             "development": {
               "optimization": false,
