@@ -1,7 +1,8 @@
 @if ((auth.isAuthenticated$ | async) === false) {
-  <button class="button" (click)="login()">LOGIN</button>
-  <p>You are not logged in</p>
+<button class="button blue" (click)="login()">LOGIN</button>
+<p>You are not logged in</p>
 }
 @else {
-  You are logged in
+<button class="button red" (click)="logout()">Logout</button>
+<p>You are logged in</p>
 }

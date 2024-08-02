@@ -16,4 +16,8 @@ export class AppComponent {
   login() {
     this.auth.loginWithRedirect();
   }
+
+  logout() {
+    this.auth.logout();
+  }
 }
