@@ -15,6 +15,8 @@ export const appConfig: ApplicationConfig = {
       httpInterceptor: {
         ...environment.httpInterceptor,
       },
+      useRefreshTokens: true,
+      cacheLocation: 'localstorage'
     }),
   ]
 };
