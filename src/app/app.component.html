@@ -1,8 +1,23 @@
 @if ((auth.isAuthenticated$ | async) === true) {
 <button class="button red" (click)="logout()">Logout</button>
-<p>You are logged in</p>
+<p>
+  You are logged in.
+</p>
+<p>
+  Your data:
+</p>
+<pre class="profile">
+{{ profile }}
+</pre>
 }
 @else {
 <button class="button blue" (click)="login()">LOGIN</button>
 <p>You are not logged in</p>
 }
+
+<button class="button purple" (click)="callApi()">Call API</button>
+<p>
+  value: @if (value != null) { {{value}} } @else {-}
+</p>
+
+{{ e }}

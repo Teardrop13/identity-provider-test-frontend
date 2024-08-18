@@ -13,6 +13,14 @@
     background-color: red;
 }
 
+.purple {
+    background-color: purple;
+}
+
 .button:hover {
     opacity: 70%;
+}
+
+.profile {
+    background-color: lightgray;
 }
