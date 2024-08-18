@@ -1,7 +1,0 @@
-{
-    "domain": "teardrop.eu.auth0.com",
-    "clientId": "9ZmHWMKo19BJ6hLaAW4906renJXwJQaZ",
-    "audience": "idp-backend-local",
-    "apiUri": "http://localhost:4200/api",
-    "appUri": "http://localhost:4200"
-}
