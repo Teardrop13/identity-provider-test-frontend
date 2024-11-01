@@ -33,4 +33,4 @@ jobs:
           ssh-keyscan -H "$SERVER_URL" >> ~/.ssh/known_hosts
           ssh "${SERVER_USER}@${SERVER_URL}" "mkdir -p /home/${SERVER_USER}/applications/idp-frontend"
           scp dist/idp-frontend/browser/* "${SERVER_USER}@${SERVER_URL}:/home/${SERVER_USER}/applications/idp-frontend/"
-          ssh "${SERVER_USER}@${SERVER_URL}" "sudo rm /var/www/html/auth0/* sudo mv /home/${SERVER_USER}/applications/idp-frontend/* /var/www/html/auth0/"
+          ssh "${SERVER_USER}@${SERVER_URL}" "sudo rm /var/www/html/auth0/*; sudo mv /home/${SERVER_USER}/applications/idp-frontend/* /var/www/html/auth0/"
