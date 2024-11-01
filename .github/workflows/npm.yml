@@ -1,0 +1,36 @@
+name: Build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm ci
+
+      - run: npm test
+
+      - name: Deploy
+        shell: bash
+        env:
+          SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
+          SERVER_URL: ${{secrets.SERVER_URL}}
+          SERVER_USER: ${{secrets.SERVER_USER}}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H "$SERVER_URL" >> ~/.ssh/known_hosts
+          ssh "${SERVER_USER}@${SERVER_URL}" "mkdir /home/${SERVER_USER}/applications/idp-frontend"
+          scp dist/idp-frontend/* "${SERVER_USER}@${SERVER_URL}:/home/${SERVER_USER}/applications/idp-frontend/"
+          ssh "${SERVER_USER}@${SERVER_URL}" "sudo rm /var/www/html/auth0/* sudo mv /home/${SERVER_USER}/applications/idp-frontend/* /var/www/html/auth0/"
